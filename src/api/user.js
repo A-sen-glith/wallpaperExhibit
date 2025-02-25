@@ -20,6 +20,13 @@ export function getAdvertising (data) {
     data
   })
 }
+export function getPosterList (data) {
+  return request({
+    url: '/bb/PosterList',
+    method: 'post',
+    data
+  })
+}
 
 export function playerstatusupd (data) {
   return request({

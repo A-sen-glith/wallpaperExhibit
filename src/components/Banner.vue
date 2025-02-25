@@ -2,7 +2,9 @@
   <div class="banner">
       <Swipe type="card" class="swipe">
         <SwipeItem class="bannerImg" v-for="(item, index) in bannerImages" :key="index">
-          <img v-lazy="item.pic_name" />
+          <a :href="item.jump_url" style="text-decoration: none; outline: none;">
+              <img v-lazy="item.pic_name" />
+          </a>
         </SwipeItem>
       </Swipe>
   </div>
