@@ -70,11 +70,11 @@ module.exports = {
     //   }
     // },
     proxy: {
-      '/aipic': {
+      '/bb': {
         target: 'http://81.68.88.82/bb',  //这里后台的地址模拟的;应该填写你们真实的后台接口
         // target: 'http://192.168.2.104:16500/gkzy-web-service',  //这里后台的地址模拟的;应该填写你们真实的后台接口
         pathRewrite: {
-          '^/aipic': ''  //请求的时候使用这个api就可以
+          '^/bb': ''  //请求的时候使用这个api就可以
         }
       }
     },
@@ -219,7 +219,7 @@ module.exports = {
       //     paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true })
       //   })
       // )
-      
+
       config.optimization.minimizer([
         new UglifyjsWebpackPlugin({
           // 生产环境推荐关闭 sourcemap 防止源码泄漏

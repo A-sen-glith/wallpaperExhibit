@@ -13,6 +13,14 @@ export function login (data) {
   })
 }
 
+export function getAdvertising (data) {
+  return request({
+    url: '/bb/AdBannerList',
+    method: 'post',
+    data
+  })
+}
+
 export function playerstatusupd (data) {
   return request({
     url: '/aipic/playerstatusupd',
