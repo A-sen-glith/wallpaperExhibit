@@ -28,6 +28,14 @@ export function getPosterList (data) {
   })
 }
 
+export function getCategoryList (data) {
+  return request({
+    url: '/bb/CategoryList',
+    method: 'post',
+    data
+  })
+}
+
 export function playerstatusupd (data) {
   return request({
     url: '/aipic/playerstatusupd',

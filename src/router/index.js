@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from 'views/Home.vue'
 import store from '@/store'
 import Article1 from 'views/Article1.vue'
+import Details from 'views/Details.vue'
 Vue.use(Router)
 
 let routes = [
@@ -21,6 +22,15 @@ let routes = [
     component: Article1,
     meta: {
       title: '首页1',
+      keepAlive: true
+    }
+  },
+  {
+    path: '/details',
+    name: 'details',
+    component: Details,
+    meta: {
+      title: '',
       keepAlive: true
     }
   },
