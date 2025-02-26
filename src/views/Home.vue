@@ -18,9 +18,9 @@
           <div class="selectType">
             <div class="Classification">
               <div class="ClassificationTitle">分类</div>
-              <Select class="ClassificationSelect" v-model="value" @change="handSelectChange1" placeholder="请选择" >
+              <Select class="ClassificationSelect" :popper-append-to-body="false" popper-class="dataClass" v-model="value" @change="handSelectChange1" placeholder="请选择" >
                 <Option
-                  style="height: 10px; line-height: 10px; font-size: 8px;padding: 0 0.13rem;"
+                  style="height: 0.3rem; line-height: 0.3rem; font-size: 12px;padding: 0 0.13rem;"
                   v-for="item in categoryList1"
                   :key="item.id"
                   :label="item.name"
@@ -34,9 +34,9 @@
                 <option value="" disabled selected hidden>请选择</option>
                 <option value="1" v-for="item in categoryList1" :key="item.id">{{ item.name }}</option>
               </select> -->
-              <Select class="ClassificationSelect" v-model="value2" @change="handSelectChange2" placeholder="请选择">
+              <Select class="ClassificationSelect" :popper-append-to-body="false" popper-class="dataClass" v-model="value2" @change="handSelectChange2" placeholder="请选择">
                 <Option
-                  style="height: 0.4rem; line-height: 0.4rem; font-size: 0.3rem;padding: 0 0.13rem;"
+                  style="height: 0.3rem; line-height: 0.3rem;font-size: 12px; padding: 0 0.13rem;"
                   v-for="item in categoryList2"
                   :key="item.id"
                   :label="item.name"
@@ -350,7 +350,13 @@ html{
     font-size: 0.2rem;
   }
   ::v-deep .el-select-dropdown.el-popper .el-select-dropdown__empty{
-    padding: 0.1rem 0 !important;
+    padding: 0.14rem 0;
+    font-size: 0.16rem;
+  }
+  ::v-deep .dataClass{
+    // height: 20px !important;
+    padding: 0;
+    font-size: 6px;
   }
   .main {
     position: relative;
