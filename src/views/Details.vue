@@ -16,13 +16,13 @@
 import Vue from 'vue'
 import { Icon, Lazyload } from "vant"
 // import { getAdvertising } from "@/api/user"
-import Banner from "components/Banner"
+// import Banner from "components/Banner"
 Vue.use(Lazyload)
 const baseUrl = 'https://eposter.tri-think.cn/uploadFile'
 export default {
   name: 'details',
   components: {
-    Banner,
+    // Banner,
     Icon,
   },
   data () {
@@ -82,7 +82,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  // height: 100vh;
   width: 100vw;
   background-color: #f5f5f5;
   .detailsPage{
