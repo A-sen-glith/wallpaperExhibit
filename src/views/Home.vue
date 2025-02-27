@@ -9,7 +9,7 @@
             </a>
           </SwipeItem>
         </Swipe>
-        <div class="advertSwitch" @click="showAdvert = false">关闭</div>
+        <div class="advertSwitch" @click="showAdvert = false">{{ $t("close") }}</div>
       </div>
 
       <div class="content">
@@ -17,8 +17,8 @@
         <div class="searchContent">
           <div class="selectType">
             <div class="Classification">
-              <div class="ClassificationTitle">分类</div>
-              <Select class="ClassificationSelect" :popper-append-to-body="false" popper-class="dataClass" v-model="value" @change="handSelectChange1" placeholder="请选择" >
+              <div class="ClassificationTitle">{{ $t("type1") }}</div>
+              <Select class="ClassificationSelect" :popper-append-to-body="false" popper-class="dataClass" v-model="value" @change="handSelectChange1" :placeholder="$t('pleaseSelect')">
                 <Option
                   style="height: 0.3rem; line-height: 0.3rem; font-size: 12px;padding: 0 0.13rem;"
                   v-for="item in categoryList1"
@@ -29,12 +29,12 @@
               </Select>
             </div>
             <div class="Classification">
-              <div class="ClassificationTitle">二级分类</div>
+              <div class="ClassificationTitle">{{ $t("type2") }}</div>
               <!-- <select class="ClassificationSelect">
                 <option value="" disabled selected hidden>请选择</option>
                 <option value="1" v-for="item in categoryList1" :key="item.id">{{ item.name }}</option>
               </select> -->
-              <Select class="ClassificationSelect" :popper-append-to-body="false" popper-class="dataClass" v-model="value2" @change="handSelectChange2" placeholder="请选择">
+              <Select class="ClassificationSelect" :popper-append-to-body="false" popper-class="dataClass" v-model="value2" @change="handSelectChange2" :placeholder="$t('pleaseSelect')">
                 <Option
                   style="height: 0.3rem; line-height: 0.3rem;font-size: 12px; padding: 0 0.13rem;"
                   v-for="item in categoryList2"
@@ -47,8 +47,8 @@
           </div>
           <div class="selectContent">
             <div class="search">
-              <input class="ipt" v-model="searchTxt" placeholder="请输入标题、作者姓名或壁报编号" />
-              <div class="searchBtn" @click="searchClick">搜索</div>
+              <input class="ipt" v-model="searchTxt" :placeholder="$t('placeholder')" />
+              <div class="searchBtn" @click="searchClick">{{ $t("search") }}</div>
             </div>
             <div class="current" v-show="totalItems != 0">
               <Pagination v-model="currentPage" :total-items="totalItems" :items-per-page="itemsPerPage">
@@ -64,15 +64,15 @@
             <div class="contentList" v-if="searchList">
               <div class="contentListItems" v-for="item in searchList" :key="item.id" @click="goDetail(item)">
                 <div class="serialNumber public">
-                  <div>编号：</div>
+                  <div>{{ $t('no') }}：</div>
                   <div>{{ item.sort_number }}</div>
                 </div>
                 <div class="author public">
-                  <div>作者：</div>
+                  <div>{{ $t('author') }}：</div>
                   <div>{{ item.author }}</div>
                 </div>
                 <div class="topic public">
-                  <div>题目：</div>
+                  <div>{{ $t('title') }}：</div>
                   <div>{{ item.title }}</div>
                 </div>
               </div>
@@ -125,17 +125,22 @@ export default {
       value2: '',
       categoryId1: '',
       categoryId2: '',
+      meeting_id: 0,
     }
   },
   computed: {},
   created () {
+    const meeting_id = this.$route.query.meeting_id;
+    if (meeting_id) {
+      this.meeting_id = Number(meeting_id);
+    }
     getAdvertising({
       'page': 1, // 页码
       'pageSize': 20, // 每页记录数
       'type': '广告', // 类型：广告，banner
       'memo': '', // 备注
       'status': '已开启', // 已开启（前台写死），已关闭
-      'meeting_id': 1, // 会议id
+      'meeting_id': this.meeting_id, // 会议id
       'uid': 1
     }).then(res => {
       const { list } = res.data
@@ -157,7 +162,7 @@ export default {
       "name": "", //类别名称
       "level": 1, //默认0全部，1一级类别，2二级类别
       "pid": 0, //父级类别id,默认0全部，
-      "meeting_id": 1, //会议id
+      "meeting_id": this.meeting_id, //会议id
       "status": "已启用", //类别开关：已启用（前端写死），已关闭
       "page": 1, //页码
       "pageSize": 10, //每页记录数
@@ -172,7 +177,7 @@ export default {
       "pageSize": 20, //每页记录数
       "category_id": !this.categoryId1 ? 0 : (!this.categoryId2 ? this.categoryId1 : this.categoryId2),//类别id,0全部
       "status": "已开启", //已开启（前台写死），已关闭
-      "meeting_id": 1, //会议id，必填
+      "meeting_id": this.meeting_id, //会议id，必填
       "content": this.searchTxt, //检索框内容
       "uid": 1
     }).then(res => {
@@ -234,7 +239,7 @@ export default {
         "name": "", //类别名称
         "level": 2, //默认0全部，1一级类别，2二级类别
         "pid": val, //父级类别id,默认0全部，
-        "meeting_id": 1, //会议id
+        "meeting_id": this.meeting_id, //会议id
         "status": "已启用", //类别开关：已启用（前端写死），已关闭
         "page": 1, //页码
         "pageSize": 10, //每页记录数
@@ -260,7 +265,7 @@ export default {
       "pageSize": 20, //每页记录数
       "category_id": !this.categoryId1 ? 0 : (!this.categoryId2 ? this.categoryId1 : this.categoryId2),//类别id,0全部
       "status": "已开启", //已开启（前台写死），已关闭
-      "meeting_id": 1, //会议id，必填
+      "meeting_id": this.meeting_id, //会议id，必填
       "content": this.searchTxt, //检索框内容
       "uid": 1
     }).then(res => {

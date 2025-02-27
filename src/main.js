@@ -10,6 +10,7 @@ import '@/style/common.scss'
 import { Lazyload } from 'vant'
 import defaultSettings from '@/settings'
 import VueCropper from 'vue-cropper'
+import i18n from '@/lang'
 
 /**
  * If you don't want to use mock-server
@@ -25,10 +26,6 @@ if (process.env.NODE_ENV === 'production') {
   mockXHR()
 }
 
-
-Vue.use(VueCropper)
-
-
 // options 为可选参数，无则不传
 Vue.use(Lazyload)
 
@@ -41,10 +38,13 @@ if (process.env.NODE_ENV === 'development' && defaultSettings.vconsole) {
 }
 // var vConsole = new VConsole(option)
 
+Vue.use(VueCropper)
+
 Vue.config.productionTip = false
 
 new Vue({
   router,
   store,
+  i18n,
   render: h => h(App)
 }).$mount('#app')

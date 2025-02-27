@@ -26,18 +26,23 @@ export default {
     return {
       bannerImages: [],
       width: window.innerWidth,
-      height: window.innerHeight
+      height: window.innerHeight,
+      meeting_id: 0,
     }
   },
   computed: {},
   created () {
+    const meeting_id = this.$route.query.meeting_id;
+    if (meeting_id) {
+      this.meeting_id = Number(meeting_id);
+    }
     getAdvertising({
       'page': 1, // 页码
       'pageSize': 20, // 每页记录数
       'type': 'banner', // 类型：广告，banner
       'memo': '', // 备注
       'status': '已开启', // 已开启（前台写死），已关闭
-      'meeting_id': 1, // 会议id
+      'meeting_id': this.meeting_id, // 会议id
       'uid': 1
     }).then(res => {
       const { list } = res.data

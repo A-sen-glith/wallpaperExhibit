@@ -10027,6 +10027,11 @@ vue-class-component@^7.0.2, vue-class-component@^7.1.0:
   resolved "https://registry.npmjs.org/vue-class-component/-/vue-class-component-7.2.6.tgz"
   integrity sha512-+eaQXVrAm/LldalI272PpDe3+i4mPis0ORiMYxF6Ae4hyuCh15W8Idet7wPUEs4N4YptgFHGys4UrgNQOMyO6w==
 
+vue-cookies@^1.8.6:
+  version "1.8.6"
+  resolved "https://registry.npmjs.org/vue-cookies/-/vue-cookies-1.8.6.tgz"
+  integrity sha512-e2kYaHj1Y/zVsBSM3KWlOoVJ5o3l4QZjytNU7xdCgmkw3521CMUerqHekBGZKXXC1oRxYljBeeOK2SCel6cKuw==
+
 vue-cropper@^0.5.8:
   version "0.5.8"
 
@@ -10058,6 +10063,11 @@ vue-hot-reload-api@^2.3.0:
   version "2.3.4"
   resolved "https://registry.npmjs.org/vue-hot-reload-api/-/vue-hot-reload-api-2.3.4.tgz"
   integrity sha512-BXq3jwIagosjgNVae6tkHzzIk6a8MHFtzAdwhnV5VlvPTFxDCvIttgSiHWjdGoTJvXtmRu5HacExfdarRcFhog==
+
+vue-i18n@^8.26.7:
+  version "8.26.7"
+  resolved "https://registry.npmjs.org/vue-i18n/-/vue-i18n-8.26.7.tgz"
+  integrity sha512-7apa5PvRg1YCLoraE3lOgpCG8hJGupLCtywQWedWsgBbvF0TOgFvhitqK9xRH0PBGG1G8aiJz9oklyNDFfDxLg==
 
 vue-lazyload@1.2.3:
   version "1.2.3"

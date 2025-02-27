@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="header">
-      <h1>AI艺术图像生成</h1>
+      <h1>壁报展示</h1>
     </div>
     <div class="content">
       <van-field placeholder="学工号" v-model="phoneNumber" left-icon="phone-o" :error-message="phoneNumberError" />

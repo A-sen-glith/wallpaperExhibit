@@ -1,6 +1,6 @@
 module.exports = {
 
-  title: 'AI艺术图像生成',
+  title: '壁报展示',
 
   /**
    * @type {boolean} true | false
